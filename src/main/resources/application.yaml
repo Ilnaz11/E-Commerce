@@ -1,3 +1,47 @@
 spring:
   application:
-    name: E-Commerce
+    name: e-commerce
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecommerce_db
+    username: ecommerce_user
+    password: ecommerce_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2s
+  liquibase:
+    change-log: classpath:db/changelog/db-changelog-master.yaml
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+    serialization:
+      indent-output: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+
+application:
+  security:
+    jwt:
+      secret: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+      access-token-expiration: 3600000
