@@ -1,8 +1,11 @@
 package com.BaimukhametovIlnaz.E_Commerce.auth.dto;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@Data
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class AuthResponse {
     private String accessToken;
     private String tokenType;

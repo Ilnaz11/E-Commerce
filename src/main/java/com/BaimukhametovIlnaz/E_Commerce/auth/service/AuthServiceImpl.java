@@ -45,7 +45,9 @@ public class AuthServiceImpl implements AuthService {
 
         userRepository.save(user);
 
-        return new AuthResponse(null, "Berear", 0);
+        String token = jwtService.generateToken(user);
+        return new AuthResponse(token, "Bearer", jwtService.getAccessTokenExpirationMs());
+
     }
 
     @Override
@@ -61,7 +63,9 @@ public class AuthServiceImpl implements AuthService {
             throw new BusinessException("Email or password invalid");
         }
 
-        return new AuthResponse(null, "Bearer", 0);
+        String token = jwtService.generateToken(user);
+
+        return new AuthResponse(token, "Bearer", jwtService.getAccessTokenExpirationMs());
 
     }
 }

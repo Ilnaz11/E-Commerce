@@ -6,7 +6,6 @@ import com.BaimukhametovIlnaz.E_Commerce.auth.dto.RegisterRequest;
 import com.BaimukhametovIlnaz.E_Commerce.auth.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +29,6 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity<AuthResponse> login(@RequestBody @Valid LoginRequest req) {
-        return ResponseEntity.ok(authService.login(req))
+        return ResponseEntity.ok(authService.login(req));
     }
 }

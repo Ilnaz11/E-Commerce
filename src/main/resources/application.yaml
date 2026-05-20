@@ -40,8 +40,12 @@ springdoc:
   api-docs:
     path: /v3/api-docs
 
+encryption:
+  secret:
+    key: ThisIsMySuperLongAndSecureSecretKeyForCardEncryption12345!
+
 application:
   security:
     jwt:
-      secret: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+      secret: ThisIsMySuperLongAndSecureSecretKeyForCardEncryption12345!
       access-token-expiration: 3600000
